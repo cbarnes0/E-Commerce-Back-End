@@ -68,7 +68,7 @@ router.delete('/:id', async (req, res) => {
     const deleteTag = await Tag.destory({
       where: {
         id: req.params.id
-      }
+      },
     });
 
     if (!deleteTag) {
@@ -76,7 +76,7 @@ router.delete('/:id', async (req, res) => {
       return;
     }
 
-    res.status(200).json({ message: 'Tag successfully deleted!' });
+    res.status(200).json(deleteTag);
   } catch (err) {
     res.status(500).json(err);
   }
